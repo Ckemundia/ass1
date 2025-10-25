@@ -30,57 +30,13 @@
     a:link {
       color: blue;
     }
+
     a:visited {
       color: green;
     }
+
     a:hover {
       color: yellow;
-    }
-
-    /* Modal background */
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 1;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.7);
-    }
-
-    /* Modal content box */
-    .modal-content {
-      background-color: #222;
-      margin: 15% auto;
-      padding: 20px;
-      border: 2px solid yellow;
-      width: 400px;
-      color: white;
-      border-radius: 10px;
-    }
-
-    input[type="text"] {
-      font-size: 20px;
-      padding: 8px;
-      width: 90%;
-      margin-bottom: 10px;
-      border: none;
-      border-radius: 5px;
-    }
-
-    button {
-      background-color: green;
-      color: white;
-      font-size: 20px;
-      padding: 8px 16px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-
-    button:hover {
-      background-color: limegreen;
     }
 
     #welcomeMsg {
@@ -91,18 +47,13 @@
 
   <script>
     window.onload = function() {
-      document.getElementById("nameModal").style.display = "block";
-    }
-
-    function submitName() {
-      var name = document.getElementById("visitorName").value.trim();
-      if (name === "") {
-        alert("Please enter your name before proceeding!");
-        return;
+      let name = "";
+      // Keep prompting until a valid name is entered
+      while (!name || name.trim() === "") {
+        name = prompt("Welcome! Please enter your name to continue:");
       }
-      document.getElementById("welcomeMsg").innerHTML = 
+      document.getElementById("welcomeMsg").innerHTML =
         "🌟 Welcome, " + name + "! We’re delighted to have you here.";
-      document.getElementById("nameModal").style.display = "none";
     }
   </script>
 </head>
@@ -122,17 +73,5 @@
 
   <hr>
   <p>© 2025 ASS1 Company Ltd.</p>
-
-  <!-- Modal Popup -->
-  <div id="nameModal" class="modal">
-    <div class="modal-content">
-      <h2>Welcome!</h2>
-      <p>Please enter your name to continue:</p>
-      <input type="text" id="visitorName" placeholder="Your name here">
-      <br>
-      <button onclick="submitName()">Proceed</button>
-    </div>
-  </div>
-
 </body>
 </html>
